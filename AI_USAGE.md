@@ -1,12 +1,8 @@
 # AI Usage Statement
 
-> **Please review and edit this statement so it reflects your actual use of AI
-> tools during the project.** It is provided as a starting point. You are fully
-> responsible for understanding, validating, and explaining all submitted work.
-
 AI tools were used during the development of this project as follows:
 
-- **Tools used:** AI coding assistants (e.g., ChatGPT / Claude).
+- **Tools used:** Claude Code.
 - **Purpose:** Coding support and documentation.
 - **Parts of the project supported by AI:**
   - **Coding / debugging:** drafting and refactoring the model and experiment
