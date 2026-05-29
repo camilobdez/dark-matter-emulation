@@ -2,7 +2,7 @@
 
 Trains the BTM flow on the full training set and produces unconditional and
 conditional sample figures (cell-delimited with ``# %%`` so it can be run in an
-IDE or as a plain script). See ``train_model.py`` / ``main.py`` for the
+IDE or as a plain script). See ``btm_train.py`` / ``btm_sweep.py`` for the
 log-score-vs-training-size experiment.
 """
 

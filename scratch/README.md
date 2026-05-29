@@ -6,6 +6,6 @@ are not in this repository (e.g., the original `batram` tutorial datasets).
 
 - `getting-started.ipynb`, `use-fit.ipynb` — `batram` library tutorials.
 - `test_1.ipynb`, `test_2.ipynb` — early exploratory versions of the BTM
-  training/evaluation, superseded by `train_model.py` and `main.py`.
+  training/evaluation, superseded by `btm_train.py` and `btm_sweep.py`.
 
 For the maintained code, see the top-level scripts and `README.md`.

@@ -20,8 +20,8 @@ distribution of 64×64 density fields — and compare three families of models:
 
 | Model | What it is | Code |
 |-------|------------|------|
-| **BTM** (Bayesian Transport Map) | A Bayesian autoregressive normalizing flow with Gaussian-process conditioners (`batram` library). Best scores, exact likelihood, closed-form conditional sampling. | `train_model.py`, `main.py`, `btm_samples.py` |
-| **VAE** | MLP variational autoencoder (hidden widths [1024, 512, 256, 128], 32-dim latent). Close second. | `vae.py`, `vaes.ipynb` |
+| **BTM** (Bayesian Transport Map) | A Bayesian autoregressive normalizing flow with Gaussian-process conditioners (`batram` library). Best scores, exact likelihood, closed-form conditional sampling. | `btm_train.py`, `btm_sweep.py`, `btm_samples.py` |
+| **VAE** | MLP variational autoencoder (hidden widths [1024, 512, 256, 128], 32-dim latent). Close second. | `vae.py`, `vae_experiments.ipynb` |
 | **GP** | Zero-mean Gaussian process with a Matérn covariance (classical baseline; fit in R with the `fields` package). Collapses when data are scarce. | `gp/matern_astro.R` |
 
 Models are compared with the **log score** (negative log-likelihood of held-out
@@ -42,11 +42,11 @@ slices by Tamošiūnas et al. (2021).
 
 ```
 .
-├── train_model.py     # Train + evaluate the BTM flow for one training size
-├── main.py            # Run the BTM log-score-vs-n sweep and plot the result
-├── btm_samples.py     # Generate BTM unconditional + conditional sample figures
-├── vae.py             # VAE model, training/eval sweep, and sample generation
-├── vaes.ipynb         # Original VAE notebook (exploration + result figures)
+├── btm_train.py       # BTM: train + evaluate the flow for one training size
+├── btm_sweep.py       # BTM: run the log-score-vs-n sweep and plot the result
+├── btm_samples.py     # BTM: generate unconditional + conditional sample figures
+├── vae.py             # VAE: model, training/eval sweep, and sample generation
+├── vae_experiments.ipynb  # VAE: original notebook (exploration + result figures)
 ├── gp/                # Gaussian-process Matérn baseline (R)
 │   ├── matern_astro.R             # Fit + evaluate the GP log score
 │   └── logscores_matern_astro.csv # GP log scores per training size
@@ -81,10 +81,10 @@ Python ≥ 3.10 is recommended.
 
 ```bash
 # Train + evaluate a single model on n training fields
-python train_model.py --train_size 160 --save_dir log_score_results
+python btm_train.py --train_size 160 --save_dir log_score_results
 
 # Run the full sweep over n ∈ {5, 10, 30, 50, 100, 160} and plot log score vs n
-python main.py
+python btm_sweep.py
 
 # Generate unconditional and conditional sample figures
 python btm_samples.py

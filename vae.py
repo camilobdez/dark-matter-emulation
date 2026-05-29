@@ -1,6 +1,6 @@
 """Variational Autoencoder (VAE) baseline for emulating dark-matter density fields.
 
-This is the script version of the experiments in ``vaes.ipynb``. It defines the
+This is the script version of the experiments in ``vae_experiments.ipynb``. It defines the
 MLP VAE described in the report (hidden widths [1024, 512, 256, 128], 32-dim
 latent space), trains it on the standardized 64x64 fields, and evaluates an
 ELBO-based log score on the held-out test fields.
