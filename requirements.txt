@@ -1,0 +1,12 @@
+# Core scientific / deep-learning stack
+torch>=2.0
+numpy>=1.23
+pandas>=1.5
+matplotlib>=3.6
+
+# Bayesian Transport Map (the normalizing-flow model) and its ordering helpers.
+# These live on GitHub (Katzfuss group), not on PyPI. Install them with:
+#   pip install "git+https://github.com/katzfuss-group/batram.git"
+#   pip install "git+https://github.com/katzfuss-group/veccs.git"
+# batram
+# veccs
