@@ -1,3 +1,11 @@
+"""Bayesian Transport Map (flow) sampling demo.
+
+Trains the BTM flow on the full training set and produces unconditional and
+conditional sample figures (cell-delimited with ``# %%`` so it can be run in an
+IDE or as a plain script). See ``btm_train.py`` / ``btm_sweep.py`` for the
+log-score-vs-training-size experiment.
+"""
+
 # %%
 import pathlib
 import pickle
@@ -12,8 +20,8 @@ from batram.legmods import Data, SimpleTM
 
 # %% [Load Data]
 # Load locations and observations from CSV files.
-locs = pd.read_csv("locs.csv", header=None).values  # Expect shape (4096, 2)
-obs = torch.as_tensor(pd.read_csv("stacked.csv", header=None).to_numpy(), dtype=torch.float32)
+locs = pd.read_csv("data/locs.csv", header=None).values  # Expect shape (4096, 2)
+obs = torch.as_tensor(pd.read_csv("data/stacked.csv", header=None).to_numpy(), dtype=torch.float32)
 obs = obs.T  # Now obs is (200, 4096): 200 images, each 4096 pixels
 
 ord = np.lexsort((locs[:, 1], locs[:, 0]))

@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+env/
+
+# Results / generated artifacts
+log_score_results/
+vae_results/
+results/
+*.pkl

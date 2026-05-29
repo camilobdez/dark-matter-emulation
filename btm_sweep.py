@@ -28,7 +28,7 @@ def run_all_sizes(train_sizes, results_dir="results"):
         print("SIZE: ", size)
         if size not in existing_sizes:
             print(f"Running model for training size {size}...")
-            subprocess.run(["python", "train_model.py", "--train_size", str(size), "--save_dir", results_dir])
+            subprocess.run(["python", "btm_train.py", "--train_size", str(size), "--save_dir", results_dir])
         else:
             print(f"Results for training size {size} already exist. Skipping.")
 

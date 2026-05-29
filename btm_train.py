@@ -27,8 +27,8 @@ def train_and_evaluate(train_size, save_dir="results"):
         Average log score across test samples
     """
     # Load locations and observations from CSV files
-    locs = pd.read_csv("locs.csv", header=None).values  # Expect shape (4096, 2)
-    obs = torch.as_tensor(pd.read_csv("stacked.csv", header=None).to_numpy(), dtype=torch.float32)
+    locs = pd.read_csv("data/locs.csv", header=None).values  # Expect shape (4096, 2)
+    obs = torch.as_tensor(pd.read_csv("data/stacked.csv", header=None).to_numpy(), dtype=torch.float32)
     obs = obs.T  # Now obs is (200, 4096): 200 images, each 4096 pixels
 
     ord = np.lexsort((locs[:, 1], locs[:, 0]))
