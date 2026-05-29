@@ -31,7 +31,7 @@ from torch.utils.data import DataLoader, TensorDataset
 import matplotlib.pyplot as plt
 
 
-def load_data(locs_path="locs.csv", obs_path="stacked.csv"):
+def load_data(locs_path="data/locs.csv", obs_path="data/stacked.csv"):
     """Load fields, sort by location, and standardize using train statistics.
 
     Returns (train_obs, test_obs, train_mean, train_std) where the first 160
@@ -226,8 +226,8 @@ def run_samples(train_size, epochs, test_index, num_fixed_pixels):
         ax.set_xticks([]); ax.set_yticks([])
     fig.suptitle("VAE unconditional samples")
     plt.tight_layout()
-    plt.savefig("vae_unconditional_samples.png", dpi=300, bbox_inches="tight")
-    print("Saved vae_unconditional_samples.png")
+    plt.savefig("figures/vae_unconditional_samples.png", dpi=300, bbox_inches="tight")
+    print("Saved figures/vae_unconditional_samples.png")
 
     # Conditional samples
     test_field = test_obs[test_index].clone()
@@ -241,8 +241,8 @@ def run_samples(train_size, epochs, test_index, num_fixed_pixels):
         ax.set_title(title)
         ax.set_xticks([]); ax.set_yticks([])
     plt.tight_layout()
-    plt.savefig("vae_conditional_samples.png", dpi=300, bbox_inches="tight")
-    print("Saved vae_conditional_samples.png")
+    plt.savefig("figures/vae_conditional_samples.png", dpi=300, bbox_inches="tight")
+    print("Saved figures/vae_conditional_samples.png")
 
 
 def main():

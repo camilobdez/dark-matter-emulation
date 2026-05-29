@@ -30,9 +30,9 @@ fields; lower is better) as the number of training fields grows over
 
 ## Data
 
-- `locs.csv` — pixel locations, shape `(4096, 2)`.
-- `stacked.csv` — 200 flattened density fields, shape `(4096, 200)` (transposed
-  to `(200, 4096)` on load).
+- `data/locs.csv` — pixel locations, shape `(4096, 2)`.
+- `data/stacked.csv` — 200 flattened density fields, shape `(4096, 200)`
+  (transposed to `(200, 4096)` on load).
 
 Fields are standardized and split into the first 160 (train) and the next 40
 (test). The full dataset of 749 fields was processed from Illustris simulation
@@ -48,11 +48,15 @@ slices by Tamošiūnas et al. (2021).
 ├── vae.py             # VAE model, training/eval sweep, and sample generation
 ├── vaes.ipynb         # Original VAE notebook (exploration + result figures)
 ├── gp/                # Gaussian-process Matérn baseline (R)
-│   ├── matern_astro.R            # Fit + evaluate the GP log score
+│   ├── matern_astro.R             # Fit + evaluate the GP log score
 │   └── logscores_matern_astro.csv # GP log scores per training size
-├── locs.csv           # Pixel locations
-├── stacked.csv        # 200 density fields
-├── *.png              # Generated figures
+├── data/              # Input data
+│   ├── locs.csv                   # Pixel locations
+│   └── stacked.csv                # 200 density fields
+├── figures/           # Generated figures
+│   ├── btm_loss_curves.png            # BTM train/test loss curves
+│   ├── vae_conditional_samples.png    # VAE conditional samples
+│   └── vae_unconditional_samples.png  # VAE unconditional samples
 ├── requirements.txt
 ├── AI_USAGE.md        # AI usage statement
 └── scratch/           # Exploratory / tutorial notebooks (not part of the pipeline)
@@ -122,8 +126,9 @@ Precomputed GP log scores per training size are in
 Fixing the first `k` flow coordinates (the largest spatial scales) and
 resampling the rest yields conditional samples that preserve large-scale
 filamentary structure while fine detail varies — exactly what an emulator
-should do. See `output.png`, `vae_conditional_samples.png`, and
-`vae_unconditional_samples.png`.
+should do. See `figures/btm_loss_curves.png`,
+`figures/vae_conditional_samples.png`, and
+`figures/vae_unconditional_samples.png`.
 
 ## AI usage statement
 

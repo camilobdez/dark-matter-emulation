@@ -4,15 +4,15 @@
 # maximum likelihood over the amplitude, range and smoothness) and reports the
 # log score (negative mean log-likelihood) on the held-out test fields.
 #
-# Run from this directory; data CSVs live one level up in the repo root:
+# Run from this directory; data CSVs live in ../data/:
 #   Rscript matern_astro.R
 #
 # Requires the R packages: fields, mvtnorm.
 
 library(fields)
 
-locs = read.csv("../locs.csv", header = FALSE)
-obs = read.csv("../stacked.csv", header = FALSE)
+locs = read.csv("../data/locs.csv", header = FALSE)
+obs = read.csv("../data/stacked.csv", header = FALSE)
 
 N = 160
 train = obs[, 0:N]
